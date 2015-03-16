@@ -1,8 +1,9 @@
 import urllib2
 import json 
-def get_data(contract_id):
+def get_data(contract_id, days=90):
     base = 'https://www.predictit.org/Home/GetChartPriceData?contractId='
-    data = urllib2.urlopen(base + str(contract_id)).read()
+    suffix = '&days='
+    data = urllib2.urlopen(base + str(contract_id) + suffix + str(days)).read()
     d = json.loads(data)
     return d
 
